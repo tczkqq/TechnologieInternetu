@@ -1,16 +1,22 @@
 // THEME
-$bgColor: white;
-$mainColor: blue;
-$secColor: green;
+$bgColor: #27AE60;
+$mainColor: white;
+$secColor: #2ECC71;
+
 
 // GLOBALS
 $small-devices: 960px;
 
+.selected {
+    background-color: #2ECC71;
+}
+
 
 body {
-    background-color: pink;
+    background-color: $bgColor;
     font-family: 'Roboto', sans-serif;
     margin: 0px;
+    color: $mainColor;
 }
 
 .wrapper {
@@ -26,7 +32,7 @@ body {
 
 .header {
     top: 0;
-    background-color: grey;
+    background-color: $secColor;
     display: flex;
     grid-area: header;
     align-items: center;
@@ -53,6 +59,26 @@ main {
     flex-direction: column;
     gap: 12px;
     
+    .site-select {
+        ul { 
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            
+            
+            .page {
+                padding: none;
+                list-style-type: none;
+
+                a {
+                    color : $mainColor;
+                    text-decoration: none;
+
+                }
+                
+            }
+        }
+    }
     
     .product {
         display: flex;
@@ -100,8 +126,10 @@ footer {
 
 @media screen and (max-width: $small-devices) {
     body {
-        background-color: aqua;
         min-width: 200px;
+    }
+    .site-select {
+        ul { flex-direction: column; align-items: center; }
     }
     .header {
         flex-direction: column;

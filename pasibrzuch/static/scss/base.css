@@ -1,7 +1,12 @@
+.selected {
+  background-color: #2ECC71;
+}
+
 body {
-  background-color: pink;
+  background-color: #27AE60;
   font-family: 'Roboto', sans-serif;
   margin: 0px;
+  color: white;
 }
 
 .wrapper {
@@ -17,7 +22,7 @@ body {
 
 .header {
   top: 0;
-  background-color: grey;
+  background-color: #2ECC71;
   display: flex;
   grid-area: header;
   align-items: center;
@@ -42,6 +47,22 @@ main {
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+main .site-select ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+main .site-select ul .page {
+  padding: none;
+  list-style-type: none;
+}
+
+main .site-select ul .page a {
+  color: white;
+  text-decoration: none;
 }
 
 main .product {
@@ -88,8 +109,11 @@ footer .social {
 
 @media screen and (max-width: 960px) {
   body {
-    background-color: aqua;
     min-width: 200px;
+  }
+  .site-select ul {
+    flex-direction: column;
+    align-items: center;
   }
   .header {
     flex-direction: column;
