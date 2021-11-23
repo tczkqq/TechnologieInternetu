@@ -1,7 +1,9 @@
 <?php
 
+session_start();
 
-echo "cos"; 
+$_SESSION['test'] = "test";
+
 header("Location: pages/koktajle.php");
 exit();
 

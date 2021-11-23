@@ -1,6 +1,7 @@
 <?php 
 require ('../header.php');
 require ('templates/menu_nav.php');
+require ('../config.php')
 ?>
 
 <article class="product">

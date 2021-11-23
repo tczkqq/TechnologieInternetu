@@ -12,7 +12,12 @@ require ('templates/menu_nav.php');
             blanditiis nihil nam porro quis doloremque ipsa numquam laborum soluta facilis voluptatum harum
             id, quibusdam maiores!</p>
     </div>
-    <button class="add">Zamów</button>
+
+    <form action="./functions/add_to_cart.php" method="post">
+        <input type="hidden" name="product_id" value="1"> </input>    
+        <button class="add" type="submit">Zamów</button>
+    </form>
+    
 </article>
 <article class="product">
     <img src="..\media\img\pierogi-z-miesem.jpg" alt="pierogi" class="cover">
