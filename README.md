@@ -6,5 +6,4 @@
 -- Admin panel
 -- Debug mode
 -- CSS Load for menu
--- Menu generated from db
 -- +/- in cart

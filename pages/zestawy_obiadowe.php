@@ -1,37 +1,34 @@
 <?php 
+require ('./functions/database.php');
+$db = new DbHandler();
+
+
 require ('../header.php');
 require ('templates/menu_nav.php');
+
+$dishes = $db->getDishesByCategory(1);
+foreach ($dishes as $dish) {
+
 ?>
 
+
 <article class="product">
-    <img src="..\media\img\pierogi-z-miesem.jpg" alt="pierogi" class="cover">
+    <img src="..\media\img\<?php echo $dish['Okladka']; ?>" alt="pierogi" class="cover">
     <div class="description">
-        <h1>Pierogi</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias sequi quam molestias eligendi fuga
-            blanditiis nihil nam porro quis doloremque ipsa numquam laborum soluta facilis voluptatum harum
-            id, quibusdam maiores!</p>
+        <h1><?php echo $dish['Nazwa']; ?></h1>
+        <p><?php echo $dish['Opis']; ?></p>
     </div>
-    <button class="add">Zamów</button>
-</article>
-<article class="product">
-    <img src="..\media\img\pierogi-z-miesem.jpg" alt="pierogi" class="cover">
-    <div class="description">
-        <h1>Pierogi</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias sequi quam molestias eligendi fuga
-            blanditiis nihil nam porro quis doloremque ipsa numquam laborum soluta facilis voluptatum harum
-            id, quibusdam maiores!</p>
-    </div>
-    <button class="add">Zamów</button>
-</article>
-<article class="product">
-    <img src="..\media\img\pierogi-z-miesem.jpg" alt="pierogi" class="cover">
-    <div class="description">
-        <h1>Pierogi</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias sequi quam molestias eligendi fuga
-            blanditiis nihil nam porro quis doloremque ipsa numquam laborum soluta facilis voluptatum harum
-            id, quibusdam maiores!</p>
-    </div>
-    <button class="add">Zamów</button>
+
+    <form action="./functions/add_to_cart.php" method="post">
+        <input type="hidden" name="product_id" value="<?php echo $dish['IDPotrawy']; ?>"> </input>  
+        <input type="number" name="times" value="0"> 
+        <button class="add" type="submit">Zamów</button>
+    </form>
+    
 </article>
 
-<?php include('../footer.php'); ?>
+
+<?php 
+}
+include('../footer.php'); 
+?>

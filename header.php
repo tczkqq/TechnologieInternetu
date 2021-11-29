@@ -15,7 +15,11 @@
 </head>
 
 <body>
-    <?php session_start(); echo var_dump($_SESSION['cart']); ?>
+    <?php  
+    require_once('pages/functions/init.php');
+    echo var_dump($_SESSION['cart']). "<br>"; 
+    echo var_dump(($_SESSION['init'])); 
+    ?>
     <div class="layout">
         <header class="header">
             <a href="../pages/main.php"> <img src="../static/img/logo.png" alt="kucharz" id="logo"></a>
@@ -24,12 +28,19 @@
                 <?php if (isset($_SESSION['is_admin']) and $_SESSION['is_admin'] == true) { ?>
                     <i class="fas fa-user-circle"></i>
                 <?php }; ?>
-                <a href="cart.php"><i class="fas fa-shopping-cart"></i></a>
-                <?php
-                if (count($_SESSION['cart'])>0) {
-                    echo "(".count($_SESSION['cart']).")";
-                }
-                ?>
+                <div id="cart">
+                    <a href="cart.php"><i class="fas fa-shopping-cart"></i>
+                    <?php
+                    $much = 0;
+                    if (count($_SESSION['cart'])>0) {
+                        foreach($_SESSION['cart'] as $item) {
+                            $much += $item;
+                        }
+                        echo "(" . $much . ")";
+                    }
+                    ?>
+                    </a>
+                </div>
             </div>
         </header>
         <main class="wrapper">
