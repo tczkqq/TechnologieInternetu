@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 require_once('init.php');
 
@@ -10,16 +10,14 @@ $tmp = array(
 );
 
 if (intval($tmp["times"])>0) {
-    if (in_array($tmp["product_id"], $_SESSION["cart"])) {
+    if (array_key_exists($tmp["product_id"], $_SESSION["cart"])) {
         $_SESSION["cart"][$tmp["product_id"]] += intval($_POST['times']);
     } else { 
-        $_SESSION['cart'][$_POST["product_id"]] = intval($_POST['times']);
+        $_SESSION['cart'][$tmp["product_id"]] = intval($_POST['times']);
     }
 } else {
     header("Location: ../../400.php");
     
 }
-
-
 header('Location: ' . $_SERVER['HTTP_REFERER']);
 ?>

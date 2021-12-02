@@ -9,14 +9,12 @@ $tmp = array(
     "times" => $_POST['times']
 );
 
-if (intval($tmp["times"])>0) {
-    if (in_array($tmp["product_id"], $_SESSION["cart"])) {
-        $_SESSION["cart"][$tmp["product_id"]] -= intval($_POST['times']);
-    } 
+if ($_POST['times'] > 1) {
+    $_SESSION['cart'][$_POST['product_id']] = intval($_POST['times']);
 } else {
-    header("Location: ../../400.php");
-    
+    unset($_SESSION['cart'][$_POST['product_id']]);
 }
+
 
 
 header('Location: ' . $_SERVER['HTTP_REFERER']);
