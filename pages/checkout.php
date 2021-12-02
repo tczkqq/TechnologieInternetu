@@ -4,6 +4,7 @@ require ('./functions/database.php');
 ?>
 
 <section class="summary">
+    <h2>Podsumowanie</h2>
     <?php
     $db = new DbHandler();
 

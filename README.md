@@ -4,6 +4,5 @@
 ## TO DO
 -- Contact view
 -- Admin panel
--- Debug mode
+-- Footer view
 -- CSS Load for menu
--- +/- in cart

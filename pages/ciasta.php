@@ -19,7 +19,7 @@ foreach ($dishes as $dish) {
         <p><?php echo $dish['Opis']; ?></p>
     </div>
 
-    <form action="./functions/add_to_cart.php" method="post">
+    <form action="./functions/cart/add_to_cart.php" method="post">
         <input type="hidden" name="product_id" value="<?php echo $dish['IDPotrawy']; ?>"> </input>  
         <input type="number" name="times" value="0"> 
         <button class="add" type="submit">Zamów</button>

@@ -1,7 +1,7 @@
 <?php
 
 
-require_once('init.php');
+require_once('../init.php');
 
 
 $tmp = array(
@@ -16,7 +16,7 @@ if (intval($tmp["times"])>0) {
         $_SESSION['cart'][$tmp["product_id"]] = intval($_POST['times']);
     }
 } else {
-    header("Location: ../../400.php");
+    header("Location: ../../../400.php");
     
 }
 header('Location: ' . $_SERVER['HTTP_REFERER']);
