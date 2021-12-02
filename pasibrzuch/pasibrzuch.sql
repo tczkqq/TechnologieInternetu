@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 08 Lis 2021, 21:11
+-- Czas generowania: 02 Gru 2021, 21:27
 -- Wersja serwera: 10.4.21-MariaDB
 -- Wersja PHP: 7.4.24
 
@@ -68,6 +68,19 @@ INSERT INTO `klienci` (`IDKlient`, `NrTelefonu`, `NazwaKlienta`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `konta`
+--
+
+CREATE TABLE `konta` (
+  `IDKonta` int(11) NOT NULL,
+  `IDKlient` int(11) DEFAULT NULL,
+  `Haslo` varchar(100) COLLATE utf8_polish_ci NOT NULL,
+  `Email` varchar(100) COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `potrawy`
 --
 
@@ -75,28 +88,30 @@ CREATE TABLE `potrawy` (
   `IDPotrawy` int(11) NOT NULL,
   `Nazwa` varchar(40) COLLATE utf8mb4_polish_ci NOT NULL,
   `Cena` decimal(6,2) NOT NULL,
-  `IDKategoria` int(11) NOT NULL
+  `IDKategoria` int(11) NOT NULL,
+  `Opis` varchar(400) COLLATE utf8mb4_polish_ci DEFAULT NULL,
+  `Okladka` varchar(150) COLLATE utf8mb4_polish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
 -- Zrzut danych tabeli `potrawy`
 --
 
-INSERT INTO `potrawy` (`IDPotrawy`, `Nazwa`, `Cena`, `IDKategoria`) VALUES
-(1, 'Szarlotka z lodami', '10.99', 4),
-(2, 'Sernik', '8.50', 4),
-(3, 'Makowiec', '7.00', 4),
-(4, 'Napoleonka', '14.20', 4),
-(5, 'Sałatka warzywna', '6.50', 3),
-(6, 'Salatka szefa', '15.00', 3),
-(7, 'Sałatka cezara', '11.20', 3),
-(8, 'Schabowy z ziemniakami i mizerią', '13.00', 1),
-(9, 'Kopytka z masłem', '11.20', 1),
-(10, 'Kotlety mielone z kaszą gryczaną i burac', '10.00', 1),
-(11, 'Koktajl mleczno-bananowy z kakao', '7.99', 2),
-(12, 'Orzechowy koktajl z twarożkiem', '6.50', 2),
-(13, 'Owsiany koktajl z borówką', '8.30', 2),
-(14, 'Jesienny koktajl proteinowy z cynamonem', '9.20', 2);
+INSERT INTO `potrawy` (`IDPotrawy`, `Nazwa`, `Cena`, `IDKategoria`, `Opis`, `Okladka`) VALUES
+(1, 'Szarlotka z lodami', '10.99', 4, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur feugiat magna augue, eu pharetra mi iaculis a. Phasellus porttitor nisl ut consectetur hendrerit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla gravida lobortis semper. Nunc ullamcorper diam quis semper mollis. Vestibulum iaculis ligula in commodo.', 'pierogi-z-miesem.jpg'),
+(2, 'Sernik', '8.50', 4, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur feugiat magna augue, eu pharetra mi iaculis a. Phasellus porttitor nisl ut consectetur hendrerit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla gravida lobortis semper. Nunc ullamcorper diam quis semper mollis. Vestibulum iaculis ligula in commodo.', 'pierogi-z-miesem.jpg'),
+(3, 'Makowiec', '7.00', 4, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur feugiat magna augue, eu pharetra mi iaculis a. Phasellus porttitor nisl ut consectetur hendrerit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla gravida lobortis semper. Nunc ullamcorper diam quis semper mollis. Vestibulum iaculis ligula in commodo.', 'pierogi-z-miesem.jpg'),
+(4, 'Napoleonka', '14.20', 4, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur feugiat magna augue, eu pharetra mi iaculis a. Phasellus porttitor nisl ut consectetur hendrerit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla gravida lobortis semper. Nunc ullamcorper diam quis semper mollis. Vestibulum iaculis ligula in commodo.', 'pierogi-z-miesem.jpg'),
+(5, 'Sałatka warzywna', '6.50', 3, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur feugiat magna augue, eu pharetra mi iaculis a. Phasellus porttitor nisl ut consectetur hendrerit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla gravida lobortis semper. Nunc ullamcorper diam quis semper mollis. Vestibulum iaculis ligula in commodo.', 'pierogi-z-miesem.jpg'),
+(6, 'Salatka szefa', '15.00', 3, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur feugiat magna augue, eu pharetra mi iaculis a. Phasellus porttitor nisl ut consectetur hendrerit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla gravida lobortis semper. Nunc ullamcorper diam quis semper mollis. Vestibulum iaculis ligula in commodo.', 'pierogi-z-miesem.jpg'),
+(7, 'Sałatka cezara', '11.20', 3, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur feugiat magna augue, eu pharetra mi iaculis a. Phasellus porttitor nisl ut consectetur hendrerit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla gravida lobortis semper. Nunc ullamcorper diam quis semper mollis. Vestibulum iaculis ligula in commodo.', 'pierogi-z-miesem.jpg'),
+(8, 'Schabowy z ziemniakami i mizerią', '13.00', 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur feugiat magna augue, eu pharetra mi iaculis a. Phasellus porttitor nisl ut consectetur hendrerit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla gravida lobortis semper. Nunc ullamcorper diam quis semper mollis. Vestibulum iaculis ligula in commodo.', 'pierogi-z-miesem.jpg'),
+(9, 'Kopytka z masłem', '11.20', 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur feugiat magna augue, eu pharetra mi iaculis a. Phasellus porttitor nisl ut consectetur hendrerit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla gravida lobortis semper. Nunc ullamcorper diam quis semper mollis. Vestibulum iaculis ligula in commodo.', 'pierogi-z-miesem.jpg'),
+(10, 'Kotlety mielone z kaszą gryczaną i burac', '10.00', 1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur feugiat magna augue, eu pharetra mi iaculis a. Phasellus porttitor nisl ut consectetur hendrerit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla gravida lobortis semper. Nunc ullamcorper diam quis semper mollis. Vestibulum iaculis ligula in commodo.', 'pierogi-z-miesem.jpg'),
+(11, 'Koktajl mleczno-bananowy z kakao', '7.99', 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur feugiat magna augue, eu pharetra mi iaculis a. Phasellus porttitor nisl ut consectetur hendrerit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla gravida lobortis semper. Nunc ullamcorper diam quis semper mollis. Vestibulum iaculis ligula in commodo.', 'pierogi-z-miesem.jpg'),
+(12, 'Orzechowy koktajl z twarożkiem', '6.50', 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur feugiat magna augue, eu pharetra mi iaculis a. Phasellus porttitor nisl ut consectetur hendrerit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla gravida lobortis semper. Nunc ullamcorper diam quis semper mollis. Vestibulum iaculis ligula in commodo.', 'pierogi-z-miesem.jpg'),
+(13, 'Owsiany koktajl z borówką', '8.30', 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur feugiat magna augue, eu pharetra mi iaculis a. Phasellus porttitor nisl ut consectetur hendrerit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla gravida lobortis semper. Nunc ullamcorper diam quis semper mollis. Vestibulum iaculis ligula in commodo.', 'pierogi-z-miesem.jpg'),
+(14, 'Jesienny koktajl proteinowy z cynamonem', '9.20', 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur feugiat magna augue, eu pharetra mi iaculis a. Phasellus porttitor nisl ut consectetur hendrerit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla gravida lobortis semper. Nunc ullamcorper diam quis semper mollis. Vestibulum iaculis ligula in commodo.', 'pierogi-z-miesem.jpg');
 
 -- --------------------------------------------------------
 
@@ -141,6 +156,14 @@ ALTER TABLE `klienci`
   ADD PRIMARY KEY (`IDKlient`);
 
 --
+-- Indeksy dla tabeli `konta`
+--
+ALTER TABLE `konta`
+  ADD PRIMARY KEY (`IDKonta`),
+  ADD UNIQUE KEY `Email` (`Email`),
+  ADD UNIQUE KEY `IDKlient` (`IDKlient`);
+
+--
 -- Indeksy dla tabeli `potrawy`
 --
 ALTER TABLE `potrawy`
@@ -178,6 +201,12 @@ ALTER TABLE `klienci`
   MODIFY `IDKlient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT dla tabeli `konta`
+--
+ALTER TABLE `konta`
+  MODIFY `IDKonta` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT dla tabeli `potrawy`
 --
 ALTER TABLE `potrawy`
@@ -192,6 +221,12 @@ ALTER TABLE `zamowienia`
 --
 -- Ograniczenia dla zrzutów tabel
 --
+
+--
+-- Ograniczenia dla tabeli `konta`
+--
+ALTER TABLE `konta`
+  ADD CONSTRAINT `konta_ibfk_1` FOREIGN KEY (`IDKlient`) REFERENCES `klienci` (`IDKlient`);
 
 --
 -- Ograniczenia dla tabeli `potrawy`
