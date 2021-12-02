@@ -31,11 +31,11 @@ require ('./functions/database.php');
 
 
 <section class="no-acc">
-<h1>Szybkie zamówienie bez konta</h1>
+    <h1>Szybkie zamówienie bez konta</h1>
     <form action="./functions/make_order.php" method="post">
-        <input type="text" placeholder="Imie i nazwisko"> </input>
-        <input type="tel" placeholder="Numer telefonu "></input>
-        <input type="text" placeholder="Adres"> </input>
+        <input type="text" name="nazwa" placeholder="Imie i nazwisko"> </input>
+        <input type="tel" name="telefon" placeholder="Numer telefonu "></input>
+        <input type="text" name="adres" placeholder="Adres"> </input>
         <button type="submit">Zamów</button>
     </form>
 </section>
@@ -45,8 +45,8 @@ require ('./functions/database.php');
     <div class="login">
         <h2>Zaloguj się</h2>
         <form action="./functions/login.php" method="post">
-                <input type="email" placeholder="Adres email"> </input>
-                <input type="password" placeholder="Hasło"> </input>
+                <input type="email" name="email" placeholder="Adres email"> </input>
+                <input type="password" name="password" placeholder="Hasło"> </input>
                 <button type="submit">Zaloguj</button>
         </form>
     </div>    
@@ -55,11 +55,11 @@ require ('./functions/database.php');
     <div class="register">
         <h2> Nie masz konta? Zarejestruj się </h2>
         <form action="./functions/register.php" method="post">
-                <input type="email" placeholder="Adres email"> </input>
-                <input type="password" placeholder="Hasło"> </input>
-                <input type="text" placeholder="Imie i nazwisko"> </input>
-                <input type="tel" placeholder="Numer telefonu "></input>
-                <input type="text" placeholder="Adres"> </input>
+                <input type="email" name="email" placeholder="Adres email"> </input>
+                <input type="password" name="password" placeholder="Hasło"> </input>
+                <input type="text" name="nazwa" placeholder="Imie i nazwisko"> </input>
+                <input type="tel" name="telefon" placeholder="Numer telefonu "></input>
+                <input type="text" name="adres" placeholder="Adres"> </input>
                 <button type="submit">Zarejestruj</button>
         </form>
     </div>

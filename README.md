@@ -2,7 +2,7 @@
 
 
 ## TO DO
--- Contact view
--- Admin panel
--- Footer view
--- CSS Load for menu
+- Contact view
+- Admin panel
+- Footer view
+- CSS Load for menu

@@ -17,11 +17,13 @@
 <body>
     <?php  
     require_once('pages/functions/init.php');
-    echo "Cart : ";
-    echo var_dump($_SESSION['cart']). "<br>"; 
-    echo var_dump(($_SESSION['init'])); 
+    if ($_SESSION['is_admin']) {
+        echo "Cart : ";
+        echo var_dump($_SESSION['cart']). "<br>"; 
+        echo var_dump(($_SESSION['init'])); 
+        echo '<form action="./functions/debug_tools.php"> <input type="submit" value="Wyczyść sesje"> </form>';
+    }
     ?>
-    <form action="./functions/debug_tools.php"> <input type="submit" value="Wyczyść sesje"> </form>
     <div class="layout">
         <header class="header">
             <a href="../pages/main.php"> <img src="../static/img/logo.png" alt="kucharz" id="logo"></a>
