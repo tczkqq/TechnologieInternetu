@@ -20,7 +20,8 @@
     if ($_SESSION['is_admin']) {
         echo "Cart : ";
         echo var_dump($_SESSION['cart']). "<br>"; 
-        echo var_dump(($_SESSION['init'])); 
+        echo "Logged: ";
+        echo var_dump(isset($_SESSION['client'])); 
         echo '<form action="./functions/debug_tools.php"> <input type="submit" value="Wyczyść sesje"> </form>';
     }
     ?>

@@ -1,4 +1,3 @@
-<?php require ('../config.php');  ?>
 <nav class="site-select">
     <ul>
         <li class="page">
