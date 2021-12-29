@@ -57,8 +57,8 @@ class DbHandler {
 
     #return
 
-    public function createClient($nrTelefonu, $nazwaKlienta) {
-        $query = "INSERT INTO `Klienci` (NrTelefonu, nazwaKlienta) VALUES ('{$nrTelefonu}', '{$nazwaKlienta}');";
+    public function createClient($nrTelefonu, $nazwaKlienta, $adres) {
+        $query = "INSERT INTO `Klienci` (NrTelefonu, nazwaKlienta, adres) VALUES ('{$nrTelefonu}', '{$nazwaKlienta}', '{$adres}');";
         $result = mysqli_query($this->con, $query);
         if (!$result) return NULL;
         $query = "SELECT * FROM `Klienci` WHERE NrTelefonu = '{$nrTelefonu}' and NazwaKlienta = '{$nazwaKlienta}' LIMIT 1;";
@@ -71,13 +71,12 @@ class DbHandler {
     }
 
 
-    public function createUser($email, $password, $nrTelefonu, $nazwaKlienta) {
+    public function createUser($email, $password, $nrTelefonu, $nazwaKlienta, $adres) {
         $query = "SELECT * FROM `Konta` WHERE Email = '{$email}';";
         $result = mysqli_query($this->con, $query);
         //echo var_dump($result);
         if (mysqli_num_rows($result)>0) return NULL;
-        $client = $this->createClient($nrTelefonu, $nazwaKlienta);
-        echo var_dump($client);
+        $client = $this->createClient($nrTelefonu, $nazwaKlienta, $adres);
         $query = "INSERT INTO `konta` (Email, Haslo, IDKlient) VALUES ('{$email}', '{$password}', {$client['IDKlient']});";
         $result = mysqli_query($this->con, $query);
         if (!$result) return NULL;
@@ -87,12 +86,20 @@ class DbHandler {
     }
 
     
-    public function getUserByID() {
-        # to do
+    public function getUserByID($IDKonta) {
+        $query = "SELECT * FROM `Konta` WHERE `IDKonta` = '{$IDKonta}';";
+        $result = mysqli_query($this->con, $query);
+        $row = $result->fetch_assoc();
+        if (mysqli_num_rows($result)==0) return NULL;
+        return $row;
     }
 
-    public function getContactByID() {
-        # to do
+    public function getClientByID($IDKlient) {
+        $query = "SELECT * FROM `Klienci` WHERE `IDKlient` = '{$IDKlient}';";
+        $result = mysqli_query($this->con, $query);
+        $row = $result->fetch_assoc();
+        if (mysqli_num_rows($result)==0) return NULL;
+        return $row;
     }
 
 }

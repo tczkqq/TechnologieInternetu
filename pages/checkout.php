@@ -25,6 +25,12 @@ require ('./functions/database.php');
 
     <?php 
     }
+    $client = NULL;
+    if (!is_null($_SESSION["user"])) {
+        $client = $db -> getClientByID($_SESSION["user"]["IDKlient"]);
+        echo var_dump($client);
+    }
+   
     unset($db);
     ?>
 </section>
@@ -61,14 +67,23 @@ require ('./functions/database.php');
 ?>
 
 <section class="no-acc">
-    <h1>Szybkie zamówienie 
+    <h1>Zamówienie 
     <?php if (!isset($_SESSION['user'])) { ?> 
         bez konta</h1>
-    <?php } ?>
+    <?php }  ?>
     <form action="./functions/make_order.php" method="post">
-        <input type="text" name="nazwa" placeholder="Imie i nazwisko" <?php if (isset($_SESSION['user'])) {echo 'value="'{$_SESSION["user"]["IDKlient"]};}' ?>> </input>
-        <input type="tel" name="telefon" placeholder="Numer telefonu" <?php if (isset($_SESSION['user'])) {echo 'value="'{$_SESSION["user"]["IDKlient"]};}' ?>> </input>
-        <input type="text" name="adres" placeholder="Adres"> </input>
+        <input type="text" name="nazwa" placeholder="Imie i nazwisko" 
+        <?php if (!is_null($client)) {
+            echo 'value="'. $client["NazwaKlienta"] . '"';} 
+        ?>> </input>
+        <input type="tel" name="telefon" placeholder="Numer telefonu" 
+        <?php if (!is_null($client)) {
+            echo 'value="'. $client["NrTelefonu"] . '"';} 
+        ?>> </input>
+        <input type="text" name="adres" placeholder="Adres"
+        <?php if (!is_null($client)) {
+            echo 'value="'. $client["Adres"] . '"';} 
+        ?>> </input>
         <button type="submit">Zamów</button>
     </form>
 </section>

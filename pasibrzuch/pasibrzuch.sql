@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 02 Gru 2021, 21:27
--- Wersja serwera: 10.4.21-MariaDB
--- Wersja PHP: 7.4.24
+-- Czas generowania: 29 Gru 2021, 22:18
+-- Wersja serwera: 10.4.22-MariaDB
+-- Wersja PHP: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -51,19 +51,17 @@ INSERT INTO `kategorie` (`IDKategoria`, `Nazwa`) VALUES
 CREATE TABLE `klienci` (
   `IDKlient` int(11) NOT NULL,
   `NrTelefonu` varchar(12) COLLATE utf8mb4_polish_ci NOT NULL,
-  `NazwaKlienta` varchar(50) COLLATE utf8mb4_polish_ci NOT NULL
+  `NazwaKlienta` varchar(50) COLLATE utf8mb4_polish_ci NOT NULL,
+  `Adres` varchar(120) COLLATE utf8mb4_polish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
 -- Zrzut danych tabeli `klienci`
 --
 
-INSERT INTO `klienci` (`IDKlient`, `NrTelefonu`, `NazwaKlienta`) VALUES
-(1, '+48509832812', 'Adam Mieckiewicz'),
-(2, '+48509890812', 'Piotr Nowak'),
-(3, '+48523890813', 'Anna Wiśniewska'),
-(4, '+48506590816', 'Tomasz Jarnutowski'),
-(5, '+48507608187', 'Jan Wilk');
+INSERT INTO `klienci` (`IDKlient`, `NrTelefonu`, `NazwaKlienta`, `Adres`) VALUES
+(29, '1234567123', 'Test Testowy', 'Ul. Testowa 23, 12-200 Testowość'),
+(30, '777666555', 'Maciek Maćkowy', 'Aleja Maćków 12/13, 09-230 Maćkowo');
 
 -- --------------------------------------------------------
 
@@ -77,6 +75,14 @@ CREATE TABLE `konta` (
   `Haslo` varchar(100) COLLATE utf8_polish_ci NOT NULL,
   `Email` varchar(100) COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `konta`
+--
+
+INSERT INTO `konta` (`IDKonta`, `IDKlient`, `Haslo`, `Email`) VALUES
+(25, 29, 'test', 'test@test.pl'),
+(26, 30, 'maciek', 'maciek@maciek.pl');
 
 -- --------------------------------------------------------
 
@@ -198,13 +204,13 @@ ALTER TABLE `kategorie`
 -- AUTO_INCREMENT dla tabeli `klienci`
 --
 ALTER TABLE `klienci`
-  MODIFY `IDKlient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `IDKlient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT dla tabeli `konta`
 --
 ALTER TABLE `konta`
-  MODIFY `IDKonta` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDKonta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT dla tabeli `potrawy`
