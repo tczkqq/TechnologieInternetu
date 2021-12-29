@@ -9,6 +9,7 @@ if (!(isset($_SESSION['init'])) or $_SESSION['init'] === false) {
     $_SESSION['cart'] = array();
     $_SESSION['is_admin'] = true;
     $_SESSION['init'] = true;    
+    $_SESSION['user'] = NULL;
 };
 
 

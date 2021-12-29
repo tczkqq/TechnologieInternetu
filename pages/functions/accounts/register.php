@@ -10,8 +10,6 @@ $telefon = $_POST['telefon'];
 $adres = $_POST['adres'];
 
 
-
-
 $_SESSION['user'] = $db->createUser($email, $password, $telefon, $nazwa);
 if (is_null($_SESSION['user'])) {
     echo "<h1>Błędne dane</h1>";
@@ -20,6 +18,6 @@ if (is_null($_SESSION['user'])) {
 }
  
 unset($db);
-#
+
 
 ?>

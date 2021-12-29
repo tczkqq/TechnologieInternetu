@@ -42,14 +42,18 @@ class DbHandler {
 
         return $items;
     }
-
-    public function getUserByLogin() {
-        # to do
+    public function login($email, $password) {
+        $query = "SELECT * FROM `Konta` WHERE `email` = '{$email}' AND `haslo` = '{$password}';";
+        $result = mysqli_query($this->con, $query);
+        if (!$result) return NULL;
+        $row = $result->fetch_assoc();
+        if (mysqli_num_rows($result)==0) return NULL;
+        return array(
+            "IDKlient" => $row["IDKlient"],
+            "IDKonta" => $row["IDKonta"]
+        );
     }
-
-    public function getContactByID() {
-        # to do
-    }
+    
 
     #return
 
@@ -83,7 +87,13 @@ class DbHandler {
     }
 
     
+    public function getUserByID() {
+        # to do
+    }
 
+    public function getContactByID() {
+        # to do
+    }
 
 }
 

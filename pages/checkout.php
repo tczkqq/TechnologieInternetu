@@ -48,6 +48,7 @@ require ('./functions/database.php');
         <form action="./functions/accounts/register.php" method="post">
                 <input type="email" name="email" placeholder="Adres email"> </input>
                 <input type="password" name="password" placeholder="Hasło"> </input>
+                <input type="password" name="passwordconfirm" placeholder="Powtórz hasło"> </input>
                 <input type="text" name="nazwa" placeholder="Imie i nazwisko"> </input>
                 <input type="tel" name="telefon" placeholder="Numer telefonu "></input>
                 <input type="text" name="adres" placeholder="Adres"> </input>
@@ -65,8 +66,8 @@ require ('./functions/database.php');
         bez konta</h1>
     <?php } ?>
     <form action="./functions/make_order.php" method="post">
-        <input type="text" name="nazwa" placeholder="Imie i nazwisko" <?php if (isset($_SESSION['client'])) {echo 'value="{$_SESSION[\'client\']}"';} ?>> </input>
-        <input type="tel" name="telefon" placeholder="Numer telefonu" <?php if (isset($_SESSION['client'])) {echo 'value="{$_SESSION[\'client\']}"';} ?>> </input>
+        <input type="text" name="nazwa" placeholder="Imie i nazwisko" <?php if (isset($_SESSION['user'])) {echo 'value="'{$_SESSION["user"]["IDKlient"]};}' ?>> </input>
+        <input type="tel" name="telefon" placeholder="Numer telefonu" <?php if (isset($_SESSION['user'])) {echo 'value="'{$_SESSION["user"]["IDKlient"]};}' ?>> </input>
         <input type="text" name="adres" placeholder="Adres"> </input>
         <button type="submit">Zamów</button>
     </form>
