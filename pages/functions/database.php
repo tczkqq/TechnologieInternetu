@@ -52,18 +52,6 @@ class DbHandler {
     }
 
     #return
-    public function createUser($email, $password, $idklient) {
-        $query = "SELECT * FROM `Konta` WHERE Email = '{$email}';";
-        $result = mysqli_query($this->con, $query);
-        //echo var_dump($result);
-        if (mysqli_num_rows($result)>0) return NULL;
-        $query = "INSERT INTO `konta` (Email, Haslo, IDKlient) VALUES ('{$email}', '{$password}', {$idklient});";
-        $result = mysqli_query($this->con, $query);
-        if (!$result) return NULL;
-        
-        # To do return ID Klienta oraz ID Usera
-        return $result;
-    }
 
     public function createClient($nrTelefonu, $nazwaKlienta) {
         $query = "INSERT INTO `Klienci` (NrTelefonu, nazwaKlienta) VALUES ('{$nrTelefonu}', '{$nazwaKlienta}');";
@@ -77,6 +65,24 @@ class DbHandler {
         # to do
         
     }
+
+
+    public function createUser($email, $password, $nrTelefonu, $nazwaKlienta) {
+        $query = "SELECT * FROM `Konta` WHERE Email = '{$email}';";
+        $result = mysqli_query($this->con, $query);
+        //echo var_dump($result);
+        if (mysqli_num_rows($result)>0) return NULL;
+        $client = $this->createClient($nrTelefonu, $nazwaKlienta);
+        echo var_dump($client);
+        $query = "INSERT INTO `konta` (Email, Haslo, IDKlient) VALUES ('{$email}', '{$password}', {$client['IDKlient']});";
+        $result = mysqli_query($this->con, $query);
+        if (!$result) return NULL;
+        
+        # To do return ID Klienta oraz ID Usera
+        return $result;
+    }
+
+    
 
 
 }

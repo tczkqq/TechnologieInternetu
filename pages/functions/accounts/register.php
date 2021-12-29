@@ -9,11 +9,17 @@ $nazwa = $_POST['nazwa'];
 $telefon = $_POST['telefon'];
 $adres = $_POST['adres'];
 
-$_SESSION['client'] = $db->createClient($telefon, $nazwa);
-echo $_SESSION['client'];
-$_SESSION['user'] = $db->createUser($email, $password, $_SESSION['client']);
 
+
+
+$_SESSION['user'] = $db->createUser($email, $password, $telefon, $nazwa);
+if (is_null($_SESSION['user'])) {
+    echo "<h1>Błędne dane</h1>";
+} else {
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+}
+ 
 unset($db);
-header('Location: ' . $_SERVER['HTTP_REFERER']);
+#
 
 ?>
