@@ -23,7 +23,7 @@ include ('partials/summary.php');
     <?php if (!isset($_SESSION['user'])) { ?> 
         bez konta</h1>
     <?php }  ?>
-    <form action="./functions/make_order.php" method="post">
+    <form action="./functions/cart/make_order.php" method="post">
         <input type="text" name="nazwa" placeholder="Imie i nazwisko" 
         <?php if (!is_null($client)) {
             echo 'value="'. $client["NazwaKlienta"] . '"';} 

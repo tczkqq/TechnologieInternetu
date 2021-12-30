@@ -92,6 +92,33 @@ class DbHandler {
         return $row;
     }
 
+    # TO DO: Dodaj obsługe daty zamowienia
+    public function makeOrder($cart, $user) {
+        if (array_key_exists('IDKlient', $user)) {
+            $query = "INSERT INTO `zamowienia` (`IDKlienta`, `MiejsceDostawy`, `DataZamowienia`)
+                         VALUES ('{$user['IDKlient']}', '{$user['adres']}', NOW())";
+            $client = $user['IDKlient'];
+        } else {
+            $client = $this -> createClient($user['telefon'], $user['nazwa'], $user['adres']);
+            $query = "INSERT INTO `zamowienia` (`IDKlienta`, `MiejsceDostawy`, `DataZamowienia`)
+                         VALUES ('{$client['IDKlient']}', '{$user['adres']}', NOW())";
+        }
+
+        $result = mysqli_query($this->con, $query);
+        if (!$result) return NULL;
+        // $result = mysqli_query($this->con, $query);
+        // if (!$result) return NULL;
+
+        // $query = "INSERT INTO `zamowione_potrawy` (`IDPotrawy`, `IDZamowienia`, `Ilosci`)
+        //             VALUES ('', '', '')";
+
+        // echo $query;
+
+
+        $order = array();
+        return $order;
+    }
+
 }
 
 
