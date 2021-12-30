@@ -4,7 +4,7 @@ $db = new DbHandler();
 
 
 require ('../header.php');
-require ('templates/menu_nav.php');
+require ('partials/menu_nav.php');
 
 $dishes = $db->getDishesByCategory(4);
 foreach ($dishes as $dish) {

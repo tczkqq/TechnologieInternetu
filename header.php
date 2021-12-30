@@ -32,7 +32,7 @@
             <span id="page-title">Pasibrzuch - Szybko, tanio i smacznie</span>
             <div class="user-panel">
                 <?php if (isset($_SESSION['is_admin']) and $_SESSION['is_admin'] == true) { ?>
-                    <i class="fas fa-user-circle"></i>
+                    <a href="profile.php"><i class="fas fa-user-circle"></i></a>
                 <?php }; ?>
                 <div id="cart">
                     <a href="cart.php"><i class="fas fa-shopping-cart"></i>

@@ -1,6 +1,6 @@
 <?php 
 require ('../header.php');
-require ('templates/menu_nav.php');
+require ('partials/menu_nav.php');
 ?>
 
 <article class="article">
