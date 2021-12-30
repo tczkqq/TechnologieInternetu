@@ -24,7 +24,6 @@
     $client = NULL;
     if (!is_null($_SESSION["user"])) {
         $client = $db -> getClientByID($_SESSION["user"]["IDKlient"]);
-        echo var_dump($client);
     }
    
     unset($db);

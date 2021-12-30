@@ -16,10 +16,6 @@ class DbHandler {
         mysqli_close($this->con);
     }
 
-    // TO DO:
-    // private function secureFromSQLInjection($query)  {
-    // }
-
     public function getDishById($id) {
         $query = "SELECT * FROM potrawy WHERE IDPotrawy = ". $id;
         $result = mysqli_query($this->con, $query);
@@ -53,9 +49,7 @@ class DbHandler {
             "IDKonta" => $row["IDKonta"]
         );
     }
-    
 
-    #return
 
     public function createClient($nrTelefonu, $nazwaKlienta, $adres) {
         $query = "INSERT INTO `Klienci` (NrTelefonu, nazwaKlienta, adres) VALUES ('{$nrTelefonu}', '{$nazwaKlienta}', '{$adres}');";
@@ -65,23 +59,19 @@ class DbHandler {
         $result = mysqli_query($this->con, $query);
         $row = $result->fetch_assoc();
         return $row;
-
-        # to do
-        
     }
 
 
     public function createUser($email, $password, $nrTelefonu, $nazwaKlienta, $adres) {
         $query = "SELECT * FROM `Konta` WHERE Email = '{$email}';";
         $result = mysqli_query($this->con, $query);
-        //echo var_dump($result);
+        
         if (mysqli_num_rows($result)>0) return NULL;
         $client = $this->createClient($nrTelefonu, $nazwaKlienta, $adres);
         $query = "INSERT INTO `konta` (Email, Haslo, IDKlient) VALUES ('{$email}', '{$password}', {$client['IDKlient']});";
         $result = mysqli_query($this->con, $query);
         if (!$result) return NULL;
-        
-        # To do return ID Klienta oraz ID Usera
+
         return $result;
     }
 

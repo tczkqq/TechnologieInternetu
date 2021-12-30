@@ -10,7 +10,6 @@ $password = $_POST['password'];
 session_start();
 
 $_SESSION['user'] = $db -> login($email, $password);
-echo var_dump($_SESSION['user']);
 if (is_null($_SESSION['user'])) {
     echo "<h1>Błędne dane</h1>";
 } else {
