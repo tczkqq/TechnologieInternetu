@@ -20,9 +20,11 @@ include ('partials/summary.php');
 
 <section class="no-acc">
     <h1>Zamówienie 
-    <?php if (!isset($_SESSION['user'])) { ?> 
-        bez konta</h1>
-    <?php }  ?>
+    <?php 
+        if (!isset($_SESSION['user'])) 
+            echo "bez konta";
+    ?>
+    </h1>
     <form action="./functions/cart/make_order.php" method="post">
         <input type="text" name="nazwa" placeholder="Imie i nazwisko" 
         <?php if (!is_null($client)) {
@@ -36,6 +38,10 @@ include ('partials/summary.php');
         <?php if (!is_null($client)) {
             echo 'value="'. $client["Adres"] . '"';} 
         ?>> </input>
+        <?php if (isset($_SESSION['user'])) { ?>
+            <input type="datetime-local"></input>
+        <?php } ?>
+        
         <button type="submit">Zamów</button>
     </form>
 </section>

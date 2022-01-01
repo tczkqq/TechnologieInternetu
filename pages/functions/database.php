@@ -96,34 +96,35 @@ class DbHandler {
     public function makeOrder($cart, $user) {
         if (array_key_exists('IDKlient', $user)) {
             $query = "INSERT INTO `zamowienia` (`IDKlienta`, `MiejsceDostawy`, `DataZamowienia`)
-                         VALUES ('{$user['IDKlient']}', '{$user['adres']}', NOW())";
+                         VALUES ('{$user['IDKlient']}', '{$user['adres']}', NOW());";
             $client = $user['IDKlient'];
         } else {
             $client = $this -> createClient($user['telefon'], $user['nazwa'], $user['adres']);
-            $query = "INSERT INTO `zamowienia` (`IDKlienta`, `MiejsceDostawy`, `DataZamowienia`)
-                         VALUES ('{$client['IDKlient']}', '{$user['adres']}', NOW())";
+            $query = "INSERT INTO `zamowienia` (`IDKlienta`, `MiejsceDostawy`, `DataZamowienia`) VALUES (\'{$client['IDKlient']}\', \'{$user['adres']}\', NOW());";
         }
 
         $result = mysqli_query($this->con, $query);
         if (!$result) return NULL;
-        // $result = mysqli_query($this->con, $query);
-        // if (!$result) return NULL;
 
-        // $query = "INSERT INTO `zamowione_potrawy` (`IDPotrawy`, `IDZamowienia`, `Ilosci`)
-        //             VALUES ('', '', '')";
+        $query = "SELECT LAST_INSERT_ID();";
+        $result = mysqli_query($this->con, $query);
+        if (!$result) return NULL;
+        $row = $result->fetch_assoc();
+        $order = $row["LAST_INSERT_ID()"];
 
-        // echo $query;
-
-
-        $order = array();
+        $query = "";
+        foreach ($_SESSION['cart'] as $key => $item) {
+            $dish = $this -> getDishById ($key);
+            $query .= "INSERT INTO `zamowione_potrawy` (`IDZamowienia`, `IDPotrawy`, `Ilosci`)
+                    VALUES ('{$order}','{$key}','{$item}'); ";
+        }
+        $result = mysqli_multi_query($this->con, $query);
+        if (!$result) return NULL;
+        
         return $order;
     }
 
 }
-
-
-
-
 
 
 

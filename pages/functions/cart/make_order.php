@@ -18,13 +18,6 @@ $order = $db -> makeOrder(
     $_SESSION['cart'],
     $client
 );
-echo var_dump($order);
-echo "<br>";
-echo var_dump($_SESSION['user']);
-echo "<br>";
-echo var_dump($client);
-echo "<br>";
-echo var_dump($_SESSION['cart']);
 
 
 if (is_null($order)) {
