@@ -6,3 +6,4 @@
 - Dynamiczne menu z bazy dnaych
 - Koszyk
 - Tryb DEBUG
+- Zamawianie

@@ -1,6 +1,6 @@
 <?php 
 require ('../header.php');
-include ('partials/summary.php');
+include ('partials/cart-preview.php');
 ?>
 
 
@@ -39,7 +39,7 @@ include ('partials/summary.php');
             echo 'value="'. $client["Adres"] . '"';} 
         ?>> </input>
         <?php if (isset($_SESSION['user'])) { ?>
-            <input type="datetime-local"></input>
+            <input type="datetime-local" name="data"></input>
         <?php } ?>
         
         <button type="submit">Zamów</button>
