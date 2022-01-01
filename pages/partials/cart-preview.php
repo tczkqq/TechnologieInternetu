@@ -1,11 +1,12 @@
 <section class="summary">
     <h2>Podsumowanie</h2>
     <?php
-    require ('./functions/database.php');
-    $db = new DbHandler();
+    require_once ('./functions/database.php');
+
+    $dba = new DbHandler();
 
     foreach ($_SESSION['cart'] as $key => $item) {
-        $dish = $db->getDishById ($key);
+        $dish = $dba->getDishById ($key);
     ?>
 
     <article class="product">
@@ -23,9 +24,9 @@
     }
     $client = NULL;
     if (!is_null($_SESSION["user"])) {
-        $client = $db -> getClientByID($_SESSION["user"]["IDKlient"]);
+        $client = $dba -> getClientByID($_SESSION["user"]["IDKlient"]);
     }
    
-    unset($db);
+    unset($dba);
     ?>
 </section>

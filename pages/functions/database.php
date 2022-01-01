@@ -92,7 +92,14 @@ class DbHandler {
         return $row;
     }
 
-    # TO DO: Dodaj obsługe daty zamowienia
+    public function getOrderByID($IDZamowienia) {
+        $query = "SELECT * FROM `zamowienia` WHERE `IDZamowienia` = '{$IDZamowienia}';";
+        $result = mysqli_query($this->con, $query);
+        $row = $result->fetch_assoc();
+        if (mysqli_num_rows($result)==0) return NULL;
+        return $row;
+    }
+
     public function makeOrder($cart, $user) {
         if (array_key_exists('IDKlient', $user)) {
             $query = "INSERT INTO `zamowienia` (`IDKlienta`, `MiejsceDostawy`, `DataZamowienia`, `DataDostawy`)
@@ -100,10 +107,11 @@ class DbHandler {
             $client = $user['IDKlient'];
         } else {
             $client = $this -> createClient($user['telefon'], $user['nazwa'], $user['adres']);
-            $query = "INSERT INTO `zamowienia` (`IDKlienta`, `MiejsceDostawy`, `DataZamowienia`) VALUES (\'{$client['IDKlient']}\', \'{$user['adres']}\', NOW());";
+            $query = "INSERT INTO `zamowienia` (`IDKlienta`, `MiejsceDostawy`, `DataZamowienia`) VALUES ('{$client['IDKlient']}', '{$user['adres']}', NOW());";
         }
 
         $result = mysqli_query($this->con, $query);
+        echo $query;
         if (!$result) return NULL;
 
         $query = "SELECT LAST_INSERT_ID();";

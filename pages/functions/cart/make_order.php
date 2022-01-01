@@ -1,5 +1,5 @@
 <?php
-require ('../database.php');
+require_once ('../database.php');
 
 session_start();
 
@@ -22,6 +22,7 @@ $order = $db -> makeOrder(
     $client
 );
 
+unset($db);
 if (is_null($order)) {
     echo "<h1>Błędne dane</h1>";
 } else {
@@ -29,7 +30,6 @@ if (is_null($order)) {
     setcookie('order', $order, time() + 3600, "/");
     header('Location: ../../summary.php');
 }
-
 
 
 
