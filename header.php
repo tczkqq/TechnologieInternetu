@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pasibrzuch</title>
+    <link rel="shortcut icon" href="../static/ico/favicon.ico"/>
     <link rel="stylesheet" href="../static/css/base.css">
     <link rel="stylesheet" href="../static/css/menu.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,9 +33,10 @@
             <span id="page-title">Pasibrzuch - Szybko, tanio i smacznie</span>
             <div class="user-panel">
                 <?php if (isset($_SESSION['is_admin']) and $_SESSION['is_admin'] == true) { ?>
+                    <a href="admin.php"><i class="fas fa-book"></i></a>
+                    <?php }; ?>
                     <a href="profile.php"><i class="fas fa-user-circle"></i></a>
-                <?php }; ?>
-                <div id="cart">
+                    <div id="cart">
                     <a href="cart.php"><i class="fas fa-shopping-cart"></i>
                     <?php
                     $much = 0;

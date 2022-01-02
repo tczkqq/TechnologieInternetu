@@ -46,7 +46,8 @@ class DbHandler {
         if (mysqli_num_rows($result)==0) return NULL;
         return array(
             "IDKlient" => $row["IDKlient"],
-            "IDKonta" => $row["IDKonta"]
+            "IDKonta" => $row["IDKonta"],
+            "Typ" => $row["Typ"]
         );
     }
 
@@ -124,6 +125,23 @@ class DbHandler {
                 $items[$row["IDZamowienia"]]["DataZamowienia"] = $row["DataZamowienia"];
                 if (isset($row["DataDostawy"]))
                     $items[$row["IDZamowienia"]]["DataDostawy"] = $row["DataDostawy"];
+        };
+
+        if (mysqli_num_rows($result)==0) return NULL;
+        return $items; 
+    }
+
+    public function getOrders() {
+        $query = "SELECT * FROM `zamowienia`;";
+        $result = mysqli_query($this->con, $query);
+        $items = array();
+        while ($row = $result->fetch_assoc()) {
+                $items[$row["IDZamowienia"]]["IDZamowienia"] = $row["IDZamowienia"];
+                $items[$row["IDZamowienia"]]["MiejsceDostawy"] = $row["MiejsceDostawy"];
+                $items[$row["IDZamowienia"]]["DataZamowienia"] = $row["DataZamowienia"];
+                if (isset($row["DataDostawy"]))
+                    $items[$row["IDZamowienia"]]["DataDostawy"] = $row["DataDostawy"];
+                $items[$row["IDZamowienia"]]["IDKlienta"] = $row["IDKlienta"];
         };
 
         if (mysqli_num_rows($result)==0) return NULL;
