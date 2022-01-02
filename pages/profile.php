@@ -1,21 +1,56 @@
 <?php 
 require ('../header.php');
 require ('./functions/database.php');
+
+$db = new DbHandler();
+$client = $db -> getClientByID($_SESSION['user']['IDKlient']);
+$user = $db -> getUserByID($_SESSION['user']['IDKonta']);
+$history = $db -> getOrdersByClientID($_SESSION['user']['IDKlient']);
+#echo '<pre>' . var_export($history, true) . '</pre>';
 ?>
 
 <?php if (!isset($_SESSION['user'])) { ?>
 
 <h1>Niezalogowany</h1>
-<?php include('partials/login.php') ?>
-<?php include('partials/register.php') ?>
+<?php include('partials/login.php'); ?>
+<?php include('partials/register.php'); ?>
 
 
 
 <?php } else { ?>
 
-<h1> Zalogowany</h1>
+    
+<section class="profile">
+    <h2>Witaj <?= $client['NazwaKlienta']; ?>!</h2>
+    <p> Imie i nazwisko: <?= $client['NazwaKlienta']; ?></p>
+    <p> Mail: <?= $user['Email']; ?></p>
+    <p> Numer Telefonu: <?= $client['NrTelefonu']; ?></p>
+    <p> Adres: <?= $client['Adres'] ;?></p>
+    <a href="functions/logout.php">Wyloguj</a>
+</section>
 
-
+<section class="history">
+    <h2>Historia Zamowień</h2>
+    <table>
+        <tr> 
+            <th> Data Zamowienia </th>
+            <th> Adres dostawy </th>
+            <th> Wybrana data dostawy </th>
+            <th> Koszyk </th>
+        </tr>
+    <?php foreach ($history as $order) { 
+        echo "<tr>";
+        echo "<td>".$order['DataZamowienia']."</td>";
+        echo "<td>".$order['MiejsceDostawy']."</td>";
+        if (isset($order['DataDostawy']))
+            echo "<td>".$order['DataDostawy']."</td>";
+        else 
+            echo "<td></td>";
+        echo "<td>?</td>";
+        echo "</tr>";
+    } ?>
+    </table>
+</section>
 <?php
 }
 include('../footer.php');

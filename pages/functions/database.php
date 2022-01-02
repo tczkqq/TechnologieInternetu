@@ -79,16 +79,16 @@ class DbHandler {
     public function getUserByID($IDKonta) {
         $query = "SELECT * FROM `Konta` WHERE `IDKonta` = '{$IDKonta}';";
         $result = mysqli_query($this->con, $query);
-        $row = $result->fetch_assoc();
         if (mysqli_num_rows($result)==0) return NULL;
+        $row = $result->fetch_assoc();
         return $row;
     }
 
     public function getClientByID($IDKlient) {
         $query = "SELECT * FROM `Klienci` WHERE `IDKlient` = '{$IDKlient}';";
         $result = mysqli_query($this->con, $query);
-        $row = $result->fetch_assoc();
         if (mysqli_num_rows($result)==0) return NULL;
+        $row = $result->fetch_assoc();
         return $row;
     }
 
@@ -98,6 +98,36 @@ class DbHandler {
         $row = $result->fetch_assoc();
         if (mysqli_num_rows($result)==0) return NULL;
         return $row;
+    }
+
+    public function getCartByOrderID($IDZamowienia) {
+        $query = "SELECT * FROM `zamowione_potrawy` WHERE `IDZamowienia` = '{$IDZamowienia}';";
+        $result = mysqli_query($this->con, $query);
+        $items = array();
+        while ($row = $result->fetch_assoc()) {
+                $items[$row["IDZamowienia"]]["IDZamowienia"] = $row["IDZamowienia"];
+                $items[$row["IDZamowienia"]]["IDPotrawy"] = $row["IDPotrawy"];
+                $items[$row["IDZamowienia"]]["Ilosci"] = $row["Ilosci"];               
+        };
+
+        if (mysqli_num_rows($result)==0) return NULL;
+        return $items; 
+    }
+
+    public function getOrdersByClientID($IDKlienta) {
+        $query = "SELECT * FROM `zamowienia` WHERE `IDKlienta` = '{$IDKlienta}';";
+        $result = mysqli_query($this->con, $query);
+        $items = array();
+        while ($row = $result->fetch_assoc()) {
+                $items[$row["IDZamowienia"]]["IDZamowienia"] = $row["IDZamowienia"];
+                $items[$row["IDZamowienia"]]["MiejsceDostawy"] = $row["MiejsceDostawy"];
+                $items[$row["IDZamowienia"]]["DataZamowienia"] = $row["DataZamowienia"];
+                if (isset($row["DataDostawy"]))
+                    $items[$row["IDZamowienia"]]["DataDostawy"] = $row["DataDostawy"];
+        };
+
+        if (mysqli_num_rows($result)==0) return NULL;
+        return $items; 
     }
 
     public function makeOrder($cart, $user) {

@@ -23,7 +23,7 @@
         echo "Logged: ";
         echo var_dump(isset($_SESSION['user'])); 
         echo var_dump($_SESSION['user']); 
-        echo '<form action="./functions/debug_tools.php"> <input type="submit" value="Wyczyść sesje"> </form>';
+        echo '<form action="./functions/logout.php"> <input type="submit" value="Wyczyść sesje"> </form>';
     }
     ?>
     <div class="layout">
