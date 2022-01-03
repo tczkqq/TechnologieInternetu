@@ -19,10 +19,14 @@ foreach ($dishes as $dish) {
         <p><?php echo $dish['Opis']; ?></p>
     </div>
 
-    <form action="./functions/cart/add_to_cart.php" method="post">
-        <input type="hidden" name="product_id" value="<?php echo $dish['IDPotrawy']; ?>"> </input>  
-        <input type="number" name="times" value="0"> 
-        <button class="add" type="submit">Zamów</button>
+        <form action="./functions/cart/add_to_cart.php" method="post" class="add">
+        <div class="inp">
+            <input type="hidden" name="product_id" value="<?php echo $dish['IDPotrawy']; ?>"> </input>  
+            <a> <i class="fas fa-plus" class="deladd"></i> </a>
+            <input type="number" name="times" value="0" class="amount"> 
+            <a> <i class="fas fa-minus" class="deladd"></i> </a>
+        </div>
+        <a type="submit" class="addToCart"><i class="fas fa-cart-plus"></i></a>
     </form>
     
 </article>

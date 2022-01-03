@@ -8,6 +8,7 @@ $secColor: #2ECC71;
 $small-devices: 960px;
 
 
+
 .product {
     display: flex;
     flex-wrap: wrap;
@@ -16,21 +17,53 @@ $small-devices: 960px;
     .cover {
         padding: 0;
         align-self: center;
-        max-width: 160px;
-        max-height: 200px;
-        border-radius: 100%;
+        max-width: 150px;
+        width: 100%;
+        max-height: 150px;
+        height: 100%;
+        //object-fit: cover;
+        //border-radius: 100%;
     }
     .description {
         padding: 0;
         flex-grow: 3;
         max-width: 650px;
-        padding: 0 20px;
+        padding: 0 15px;
     }
     .add {
+        align-items: center;
         padding: 0;
         align-self: center;
         width: 108px;
-        height: 65px;
+        height: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        
+
+        .inp {
+            display: flex;
+
+            input[type=number]::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+            }
+            .amount {
+                width: 20px;
+                margin-left: 3px;
+                margin-right: 3px;
+            }
+            .deladd {
+                
+                cursor: pointer;
+            }
+        }
+
+        .fa-cart-plus{
+            background-color: none; /* Blue background */
+            border: none;
+            font-size: 30px;
+            cursor: pointer;
+        }
     }
 }
 

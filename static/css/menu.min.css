@@ -51,7 +51,6 @@
 
 .product .add .fa-cart-plus {
   background-color: none;
-  /* Blue background */
   border: none;
   font-size: 30px;
   cursor: pointer;
@@ -63,4 +62,4 @@
   }
 }
 
-/*# sourceMappingURL=menu.css.map */
+/*# sourceMappingURL=menu.min.css.map */

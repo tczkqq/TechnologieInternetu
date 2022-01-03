@@ -13,6 +13,7 @@ body {
   max-width: 960px;
   align-self: center;
   margin: 20px auto;
+  width: 100%;
 }
 
 .layout {
@@ -79,14 +80,7 @@ footer {
   grid-area: footer;
   display: flex;
   flex-wrap: wrap;
-}
-
-footer .contact {
-  flex-grow: 2;
-}
-
-footer .social {
-  flex-grow: 1;
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 960px) {

@@ -6,7 +6,7 @@ body {
   background-color: #27AE60;
   font-family: "Roboto", sans-serif;
   margin: 0px;
-  color: white;
+  color: #fff;
 }
 
 .wrapper {
@@ -72,7 +72,7 @@ main .site-select ul .page {
 }
 
 main .site-select ul .page a {
-  color: white;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -107,4 +107,4 @@ footer {
   }
 }
 
-/*# sourceMappingURL=base.css.map */
+/*# sourceMappingURL=base.min.css.map */

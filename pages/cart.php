@@ -17,7 +17,7 @@ foreach ($_SESSION['cart'] as $key => $item) {
         <form action="./functions/cart/del_from_cart.php" method="post">
             <input type="hidden" name="product_id" value="<?php echo $dish['IDPotrawy']; ?>"> </input>  
             <input type="number" name="times" value="<?php echo $_SESSION['cart'][$dish['IDPotrawy']]; ?>"> 
-            <button class="add" type="submit"><i class="fas fa-edit"></i></button>
+            <a class="add" type="submit"><i class="fas fa-edit"></i></a>
         </form>
     </article>
 

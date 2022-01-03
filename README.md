@@ -7,3 +7,4 @@
 - Koszyk
 - Tryb DEBUG
 - Zamawianie
+- Panel administracyjny
