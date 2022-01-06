@@ -1,5 +1,6 @@
 <?php
-include ('../header.php');
+require ('../imports.php');
+require ('../header.php');
 require ('./functions/database.php');
 
 if (isset($_SESSION['user']) and $_SESSION['is_admin']) {

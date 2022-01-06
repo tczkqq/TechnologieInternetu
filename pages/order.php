@@ -1,4 +1,5 @@
 <?php 
+require ('../imports.php');
 require ('../header.php');
 ?>
 

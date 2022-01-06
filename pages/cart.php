@@ -1,5 +1,7 @@
 
 <?php 
+require ('../imports.php');
+echo '<link rel="stylesheet" href="../static/css/menu.css">';
 require ('../header.php');
 require ('./functions/database.php');
 
@@ -10,13 +12,13 @@ foreach ($_SESSION['cart'] as $key => $item) {
 ?>
 
     <article class="product">
-        <img src="..\media\img\pierogi-z-miesem.jpg" alt="pierogi" class="cover">
+        <img src="..\media\img\<?php echo $dish['Okladka']; ?>" alt="pierogi" class="cover sum">
         <div class="description">
             <h1><?php echo $dish['Nazwa']; ?></h1>
         </div>
-        <form action="./functions/cart/del_from_cart.php" method="post">
+        <form action="./functions/cart/del_from_cart.php" method="post" class="modify">
             <input type="hidden" name="product_id" value="<?php echo $dish['IDPotrawy']; ?>"> </input>  
-            <input type="number" name="times" value="<?php echo $_SESSION['cart'][$dish['IDPotrawy']]; ?>"> 
+            <input type="number" class="amount" name="times" value="<?php echo $_SESSION['cart'][$dish['IDPotrawy']]; ?>"> 
             <a class="add" type="submit"><i class="fas fa-edit"></i></a>
         </form>
     </article>
@@ -31,7 +33,7 @@ if (empty($_SESSION['cart'])) {
 ?>
 
 
-<form action="checkout.php">
+<form action="checkout.php" id="checkout">
     <button type="submit"> Przejdz dalej </button>
 </form>
 

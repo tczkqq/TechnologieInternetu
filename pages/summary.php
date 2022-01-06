@@ -1,4 +1,5 @@
-<?php require ('../header.php'); ?>
+<?php require ('../imports.php');
+require ('../header.php'); ?>
     
 
 <h1> Zamówienie nr. <?php echo $_COOKIE['order']; ?> zostało złożone </h1>

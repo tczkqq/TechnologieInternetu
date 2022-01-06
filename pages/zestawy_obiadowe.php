@@ -1,8 +1,8 @@
 <?php 
 require ('./functions/database.php');
 $db = new DbHandler();
-
-
+require ('../imports.php');
+echo '<link rel="stylesheet" href="../static/css/menu.css">';
 require ('../header.php');
 require ('partials/menu_nav.php');
 
