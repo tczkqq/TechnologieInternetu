@@ -1,7 +1,9 @@
 <?php 
 require ('../imports.php');
+echo '<link rel="stylesheet" href="../static/css/checkout.css">';
 require ('../header.php');
 require ('./functions/database.php');
+
 
 
 #echo '<pre>' . var_export($history, true) . '</pre>';
@@ -10,9 +12,10 @@ require ('./functions/database.php');
 <?php if (!isset($_SESSION['user'])) { ?>
 
 <h1>Niezalogowany</h1>
-<?php include('partials/login.php'); ?>
+<div class="rows">
 <?php include('partials/register.php'); ?>
-
+<?php include('partials/login.php'); ?>
+</div>
 
 
 <?php 
@@ -30,7 +33,7 @@ require ('./functions/database.php');
     <p> Mail: <?= $user['Email']; ?></p>
     <p> Numer Telefonu: <?= $client['NrTelefonu']; ?></p>
     <p> Adres: <?= $client['Adres'] ;?></p>
-    <a href="functions/logout.php">Wyloguj</a>
+    <a href="functions/logout.php" class="bbtn">Wyloguj</a>
 </section>
 
 <section class="history">
@@ -56,8 +59,8 @@ require ('./functions/database.php');
                 echo "<td></td>";
             echo "<td>?</td>";
             echo "</tr>";
-            echo "</table>";
         }
+        echo "</table>";
     } else echo "Brak zamówien :/";?>
     
 </section>

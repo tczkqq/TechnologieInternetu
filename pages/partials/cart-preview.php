@@ -11,11 +11,8 @@
 
     <article class="product">
         <div class="description">
-            <h1>
-                <?php echo $dish['Nazwa']; ?>
-                (<?php echo $_SESSION['cart'][$dish['IDPotrawy']]; ?>)
-                
-            </h1>
+                <?php echo $_SESSION['cart'][$dish['IDPotrawy']]; ?>x
+                <?php echo $dish['Nazwa']; ?> </br>
         </div>
 
     </article>

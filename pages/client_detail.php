@@ -1,5 +1,6 @@
 <?php 
 require ('../imports.php');
+echo '<link rel="stylesheet" href="../static/css/checkout.css">';
 require ('../header.php');
 require ('./functions/database.php');
 
@@ -40,8 +41,8 @@ if (isset($_SESSION['user']) and $_SESSION['is_admin']) {
                 echo "<td></td>";
             echo "<td>?</td>";
             echo "</tr>";
-            echo "</table>";
         }
+        echo "</table>";
     } else echo "Brak zamówien :/";?>
     
 </section>

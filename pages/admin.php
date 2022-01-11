@@ -1,5 +1,6 @@
 <?php
 require ('../imports.php');
+echo '<link rel="stylesheet" href="../static/css/checkout.css">';
 require ('../header.php');
 require ('./functions/database.php');
 

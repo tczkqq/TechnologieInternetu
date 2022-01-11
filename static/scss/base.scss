@@ -11,6 +11,28 @@ $small-devices: 960px;
     background-color: #2ECC71;
 }
 
+a {
+    color: $mainColor;
+    text-decoration: none;
+}
+
+a:hover {
+    color:$mainColor; 
+    text-decoration:none; 
+    font-weight: bold;
+    cursor:pointer;  
+}
+.btn {
+    color: $mainColor;
+    background-color: $bgColor;
+    border-radius: 15px;
+    border: 0;
+}
+.btn:hover {
+    background-color: $secColor;
+    
+}
+
 
 body {
     background-color: $bgColor;
@@ -97,7 +119,11 @@ footer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
+    
+    .menu {
+        padding: 0px;
+        list-style-type: none;
+    }
 }
 
 @media screen and (max-width: $small-devices) {

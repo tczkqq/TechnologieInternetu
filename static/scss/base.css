@@ -2,6 +2,29 @@
   background-color: #2ECC71;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn {
+  color: white;
+  background-color: #27AE60;
+  border-radius: 15px;
+  border: 0;
+}
+
+.btn:hover {
+  background-color: #2ECC71;
+}
+
 body {
   background-color: #27AE60;
   font-family: 'Roboto', sans-serif;
@@ -81,6 +104,11 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+footer .menu {
+  padding: 0px;
+  list-style-type: none;
 }
 
 @media screen and (max-width: 960px) {

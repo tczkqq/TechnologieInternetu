@@ -13,18 +13,36 @@ $small-devices: 960px;
     display: flex;
     flex-wrap: wrap;
     border: 1px solid;
+
     
     .modify {
         display: flex;
         align-items: center;
+        justify-content: space-between;
         
+        .addToCart i {
+            font-size: 24px;
+            cursor: pointer;
+        }
         .add {
             padding-left: 10px;
             width: auto;
         }
+        .fas.fa-minus {
+            margin-right: 40px;
+        }
         .amount {
             width: 20px;
+            margin-left: 3px;
+            margin-right: 3px;
+            background-color: $bgColor;
+            color: $mainColor;
+            border: 0;
+            text-align: center;
         }
+        input[type=number]::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+            }
         
     }
     .cover {
@@ -48,6 +66,7 @@ $small-devices: 960px;
         flex-grow: 3;
         max-width: 650px;
         padding: 0 15px;
+        align-self: center;
     }
     .add {
         align-items: center;
@@ -70,12 +89,19 @@ $small-devices: 960px;
                 width: 20px;
                 margin-left: 3px;
                 margin-right: 3px;
+                background-color: $bgColor;
+                color: $mainColor;
+                border: 0;
+                text-align: center;
             }
             .deladd {
                 
                 cursor: pointer;
             }
         }
+        .addToCart {
+        margin-top: 10px;
+    }
 
         .fa-cart-plus{
             background-color: none; /* Blue background */
@@ -87,6 +113,22 @@ $small-devices: 960px;
 }
 #checkout {
     align-self: flex-end;
+
+    button {
+        padding: 20px;
+        background-color: $secColor;
+        color: $mainColor;
+        border-radius: 4px;
+        font-size: 26px;
+        border: 0;
+    }
+
+    button:hover {
+        background-color: $mainColor;
+        color: $secColor;
+        transition: width 2s, height 2s, transform 2s;
+        cursor: pointer;
+    }
 }
 
 @media screen and (max-width: $small-devices) {

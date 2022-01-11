@@ -18,5 +18,6 @@ Data dostawy: <?php echo $order['DataDostawy']; ?>
 } 
 #unset($_SESSION['cart']);
 unset($db);
+$_SESSION['cart'] = array();
 require ('../footer.php') 
 ?>;

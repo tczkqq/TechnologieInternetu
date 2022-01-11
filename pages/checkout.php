@@ -1,7 +1,7 @@
 <?php 
 require ('../imports.php');
+echo '<link rel="stylesheet" href="../static/css/checkout.css">';
 require ('../header.php');
-include ('partials/cart-preview.php');
 ?>
 
 
@@ -9,43 +9,58 @@ include ('partials/cart-preview.php');
 <?php if (!isset($_SESSION['user'])) {
 
 ?>
-<section class="acc">
+<div class="rows">
     <?php include('partials/login.php') ?>
 
 
     <?php include('partials/register.php') ?>
-</section>
-<?php 
-}
-?>
-
-<section class="no-acc">
-    <h1>Zamówienie 
+</div>
     <?php 
-        if (!isset($_SESSION['user'])) 
-            echo "bez konta";
+    }
+    echo '<div class="rows">';
+    include ('partials/cart-preview.php');
     ?>
-    </h1>
-    <form action="./functions/cart/make_order.php" method="post">
-        <input type="text" name="nazwa" placeholder="Imie i nazwisko" 
-        <?php if (!is_null($client)) {
-            echo 'value="'. $client["NazwaKlienta"] . '"';} 
-        ?>> </input>
-        <input type="tel" name="telefon" placeholder="Numer telefonu" 
-        <?php if (!is_null($client)) {
-            echo 'value="'. $client["NrTelefonu"] . '"';} 
-        ?>> </input>
-        <input type="text" name="adres" placeholder="Adres"
-        <?php if (!is_null($client)) {
-            echo 'value="'. $client["Adres"] . '"';} 
-        ?>> </input>
-        <?php if (isset($_SESSION['user'])) { ?>
-            <input type="datetime-local" name="data"></input>
-        <?php } ?>
-        
-        <button type="submit">Zamów</button>
-    </form>
-</section>
+
+    <section class="no-acc">
+        <h1>Zamówienie 
+        <?php 
+            if (!isset($_SESSION['user'])) 
+                echo "bez konta";
+        ?>
+        </h1>
+        <form action="./functions/cart/make_order.php" method="post">
+            <p>
+                <label for="name">Imie i nazwisko:</label>
+                <input type="text" name="nazwa" id="name" placeholder="Imie i nazwisko" 
+                <?php if (!is_null($client)) {
+                    echo 'value="'. $client["NazwaKlienta"] . '"';} 
+                ?>> </input>
+            </p>
+            <p>
+                <label for="tel">Numer telefonu:</label>
+                <input type="tel" name="tel" name="telefon" placeholder="Numer telefonu" 
+                <?php if (!is_null($client)) {
+                    echo 'value="'. $client["NrTelefonu"] . '"';} 
+                ?>> </input>
+            </p>
+            <p>
+                <label for="adres">Adres dostawy:</label>
+                <input type="text" id="adres" name="adres" placeholder="Adres"
+                <?php if (!is_null($client)) {
+                    echo 'value="'. $client["Adres"] . '"';} 
+                ?>> </input>
+            </p>
+            <?php if (isset($_SESSION['user'])) { ?>
+                <p>
+                    <label for="Data">Czas dostawy</label>
+                    <input type="datetime-local" id="data" name="data"></input>
+                </p>
+            <?php } ?>
+            
+            <button type="submit" class="bbtn big">Zamów</button>
+        </form>
+    </section>
+</div>
 
 
 

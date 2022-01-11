@@ -1,8 +1,14 @@
 <div class="login">
     <h2>Zaloguj się</h2>
     <form action="./functions/accounts/login.php" method="post">
-            <input type="email" name="email" placeholder="Adres email"> </input>
-            <input type="password" name="password" placeholder="Hasło"> </input>
-            <button type="submit">Zaloguj</button>
+        <p>
+            <label for="logemail">Login:</label>
+                <input type="email" name="email" id="logemail" placeholder="Adres email"> </input>
+        </p>
+        <p>
+            <label for="logpassword">Hasło:</label>
+                <input type="password" name="password" id="logpassword" placeholder="Hasło"> </input>
+        </p>    
+        <button type="submit" class="bbtn">Zaloguj</button>
     </form>
 </div>    

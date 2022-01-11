@@ -7,6 +7,12 @@
 .product .modify {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+.product .modify .addToCart i {
+  font-size: 24px;
+  cursor: pointer;
 }
 
 .product .modify .add {
@@ -14,8 +20,22 @@
   width: auto;
 }
 
+.product .modify .fas.fa-minus {
+  margin-right: 40px;
+}
+
 .product .modify .amount {
   width: 20px;
+  margin-left: 3px;
+  margin-right: 3px;
+  background-color: #27AE60;
+  color: #fff;
+  border: 0;
+  text-align: center;
+}
+
+.product .modify input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 
 .product .cover {
@@ -37,6 +57,7 @@
   flex-grow: 3;
   max-width: 650px;
   padding: 0 15px;
+  align-self: center;
 }
 
 .product .add {
@@ -61,10 +82,18 @@
   width: 20px;
   margin-left: 3px;
   margin-right: 3px;
+  background-color: #27AE60;
+  color: #fff;
+  border: 0;
+  text-align: center;
 }
 
 .product .add .inp .deladd {
   cursor: pointer;
+}
+
+.product .add .addToCart {
+  margin-top: 10px;
 }
 
 .product .add .fa-cart-plus {
@@ -76,6 +105,22 @@
 
 #checkout {
   align-self: flex-end;
+}
+
+#checkout button {
+  padding: 20px;
+  background-color: #2ECC71;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 26px;
+  border: 0;
+}
+
+#checkout button:hover {
+  background-color: #fff;
+  color: #2ECC71;
+  transition: width 2s, height 2s, transform 2s;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 960px) {
