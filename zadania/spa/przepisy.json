@@ -1,0 +1,19 @@
+{
+    "Przepisy": [
+        {
+            "Tytuł": "Barszcz czerwony z uszkami",
+            "Opis": "Dolores atque rem nihil magni nam voluptas. Dolore voluptates veritatis eum molestiae fuga aut aliquid autem quod. Velit et facere ut blanditiis rerum quidem dignissimos. Quos omnis rerum itaque earum. Ea aut repellat est distinctio eum consequatur. Aut sunt autem et aut et adipisci quo temporibus.",
+            "Czasochłonność": "2h"
+        },
+        {
+            "Tytuł": "Wigilijne pierogi",
+            "Opis": "Voluptatem similique aliquam aut optio ea non. Ut eligendi quam voluptatum. Aut corrupti eligendi. Voluptatem ut impedit. Voluptatem occaecati ipsam consectetur repellendus tenetur aut ea dolor debitis.",
+            "Czasochłonność": "4h"
+        },
+        {
+            "Tytuł": "Ryba po grecku",
+            "Opis": "Aut eaque labore est molestiae mollitia itaque dolorem. Dicta nulla quibusdam aperiam sint quod labore dignissimos. In fugit quia nobis non quam ut et.",
+            "Czasochłonność": "3h"
+        }
+    ]
+}
