@@ -10,10 +10,6 @@
                 <input type="password" id="password" name="password" placeholder="Hasło"> </input> 
         </p>
         <p>
-            <label for="rpassword">Powtórz hasło:</label>
-                <input type="password" id="rpassword" name="passwordconfirm" placeholder="Powtórz hasło"> </input> 
-        </p>
-        <p>
             <label for="nazwa">Imie i nazwisko</label>
                 <input type="text" id="nazwa" name="nazwa" placeholder="Imie i nazwisko"> </input> 
         </p>

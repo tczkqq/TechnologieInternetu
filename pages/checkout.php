@@ -29,6 +29,8 @@ require ('../header.php');
         ?>
         </h1>
         <form action="./functions/cart/make_order.php" method="post">
+        <!-- <form action="../test.php" method="post"> -->
+        
             <p>
                 <label for="name">Imie i nazwisko:</label>
                 <input type="text" name="nazwa" id="name" placeholder="Imie i nazwisko" 
@@ -38,7 +40,7 @@ require ('../header.php');
             </p>
             <p>
                 <label for="tel">Numer telefonu:</label>
-                <input type="tel" name="tel" name="telefon" placeholder="Numer telefonu" 
+                <input type="tel" name="telefon" placeholder="Numer telefonu" 
                 <?php if (!is_null($client)) {
                     echo 'value="'. $client["NrTelefonu"] . '"';} 
                 ?>> </input>

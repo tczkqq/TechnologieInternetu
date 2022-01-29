@@ -159,7 +159,6 @@ class DbHandler {
         }
 
         $result = mysqli_query($this->con, $query);
-        echo $query;
         if (!$result) return NULL;
 
         $query = "SELECT LAST_INSERT_ID();";
