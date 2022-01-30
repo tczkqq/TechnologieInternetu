@@ -36,3 +36,21 @@ table {
     width: 100%;
     text-align: center;
 }
+
+@media screen and (max-width: 740px) {
+    .wrapper {
+        align-items: center;
+    }
+    h1 {
+        text-align: center;
+    }
+    .rows {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center; 
+    }
+    section {
+        min-width: 390px;
+    }
+}
+

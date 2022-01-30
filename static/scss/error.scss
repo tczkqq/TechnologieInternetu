@@ -1,0 +1,30 @@
+// THEME
+$bgColor: #27AE60;
+$mainColor: white;
+$secColor: #2ECC71;
+
+
+
+body {
+    background-color: $bgColor;
+    color: $mainColor;
+    font-family: 'Roboto', sans-serif;
+
+    h1 {
+        margin-bottom: 70px;
+    }
+   
+}
+
+
+.wrapper {
+    max-width: 960px;
+    align-self: center;
+    margin: 20px auto;
+    width: 100%;
+    text-align: center;
+}
+
+#redirect-text {
+    margin-bottom: 100px;
+}

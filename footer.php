@@ -1,5 +1,5 @@
         </main>
-        <footer class="wrapper">
+        <footer class="wrapper footer">
             <section class="contact">
                 <h3>Pasibrzuch</h1>
                     <p>Tomasz Jarnutowski Z510</p>

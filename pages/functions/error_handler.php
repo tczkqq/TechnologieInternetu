@@ -8,23 +8,23 @@
     <title>Błąd !</title>
 </head>
 <body>
-    
-<h1>Błąd!</h1>
-<h2><?php echo $_COOKIE['errormsg']; ?></h2>
-Za chwile nastąpi przekierowanie...
-<?php
+<div class="wrapper">
+    <h1> Błąd!</h1>
+    <h2><?php echo $_COOKIE['errormsg']; ?></h2>
+    <h4 id="redirect-text"> Za chwile nastąpi przekierowanie... </h4> </br>
+    <script>
+        function sleep (time) {
+            return new Promise((resolve) => setTimeout(resolve, time));
+        }
+        sleep(3000).then(() => {
+            history.back()
+        });
+        
+    </script>
 
-#header('Location: ' . $_SERVER['HTTP_REFERER']);
-?>
-<script>
-    function sleep (time) {
-        return new Promise((resolve) => setTimeout(resolve, time));
-    }
-    sleep(3000).then(() => {
-        history.back()
-    });
-    
-</script>
 
+    <img src="../../static/img/logo.png" alt="logo" >
+
+</div>
 </body>
 </html>

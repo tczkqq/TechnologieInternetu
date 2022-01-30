@@ -33,21 +33,21 @@ require ('../header.php');
         
             <p>
                 <label for="name">Imie i nazwisko:</label>
-                <input type="text" name="nazwa" id="name" placeholder="Imie i nazwisko" 
+                <input type="text" name="nazwa" id="name" placeholder="Imie i nazwisko" required
                 <?php if (!is_null($client)) {
                     echo 'value="'. $client["NazwaKlienta"] . '"';} 
                 ?>> </input>
             </p>
             <p>
                 <label for="tel">Numer telefonu:</label>
-                <input type="tel" name="telefon" placeholder="Numer telefonu" 
+                <input type="tel" name="telefon" placeholder="Numer telefonu" required
                 <?php if (!is_null($client)) {
                     echo 'value="'. $client["NrTelefonu"] . '"';} 
                 ?>> </input>
             </p>
             <p>
                 <label for="adres">Adres dostawy:</label>
-                <input type="text" id="adres" name="adres" placeholder="Adres"
+                <input type="text" id="adres" name="adres" placeholder="Adres"required
                 <?php if (!is_null($client)) {
                     echo 'value="'. $client["Adres"] . '"';} 
                 ?>> </input>

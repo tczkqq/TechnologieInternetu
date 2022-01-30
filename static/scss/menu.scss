@@ -132,7 +132,12 @@ $small-devices: 960px;
 }
 
 @media screen and (max-width: $small-devices) {
+    .modify {
+        justify-content: center !important;
+        margin-bottom: 10px;
+    }
     .product {
         flex-direction: column;
+        width: 100%;
     }
 }
