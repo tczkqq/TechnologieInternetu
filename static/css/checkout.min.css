@@ -23,6 +23,16 @@
   cursor: pointer;
 }
 
+.fullwidth {
+  width: 100%;
+  align-items: center;
+  text-align: center;
+}
+
+.fullwidth input {
+  margin-bottom: 10px;
+}
+
 table {
   width: 100%;
   text-align: center;

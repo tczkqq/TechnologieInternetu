@@ -12,8 +12,10 @@ $adres = $_POST['adres'];
 
 $_SESSION['user'] = $db->createUser($email, $password, $telefon, $nazwa, $adres);
 if (is_null($_SESSION['user'])) {
-    echo "<h1>Błędne dane</h1>";
+    setcookie('errormsg', 'Już istnieje użytkownik z takim adresem email', time() + 3600, "/");
+    header('Location: ../error_handler.php');
 } else {
+    $_SESSION['user'] = $db -> login($email, $password);
     header('Location: ' . $_SERVER['HTTP_REFERER']);
 }
  

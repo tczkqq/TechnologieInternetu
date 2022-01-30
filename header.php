@@ -3,14 +3,14 @@
 <body>
     <?php  
     require_once('pages/functions/init.php');
-    if ($_SESSION['is_admin']) {
-        echo "Cart : ";
-        echo var_dump($_SESSION['cart']). "<br>"; 
-        echo "Logged: ";
-        echo var_dump(isset($_SESSION['user'])); 
-        echo var_dump($_SESSION['user']); 
-        echo '<form action="./functions/logout.php"> <input type="submit" value="Wyczyść sesje"> </form>';
-    }
+    // if ($_SESSION['is_admin']) {
+    //     echo "Cart : ";
+    //     echo var_dump($_SESSION['cart']). "<br>"; 
+    //     echo "Logged: ";
+    //     echo var_dump(isset($_SESSION['user'])); 
+    //     echo var_dump($_SESSION['user']); 
+    //     echo '<form action="./functions/logout.php"> <input type="submit" value="Wyczyść sesje"> </form>';
+    // }
     ?>
     <div class="layout">
         <header class="header">

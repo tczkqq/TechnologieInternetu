@@ -179,6 +179,20 @@ class DbHandler {
         return $order;
     }
 
+    public function searchClientsByName($name) {
+        $query = "SELECT * FROM `klienci` WHERE `nazwaklienta` like '{$name}%';";
+        $result = mysqli_query($this->con, $query);
+        $items = array();
+        while ($row = $result->fetch_assoc()) {
+                $items[$row["IDKlient"]]["IDKlient"] = $row["IDKlient"];
+                $items[$row["IDKlient"]]["NazwaKlienta"] = $row["NazwaKlienta"];
+                $items[$row["IDKlient"]]["NrTelefonu"] = $row["NrTelefonu"];
+                $items[$row["IDKlient"]]["Adres"] = $row["Adres"];
+        };
+
+        return $items;
+    }
+
 }
 
 

@@ -10,14 +10,20 @@ if (isset($_SESSION['user']) and $_SESSION['is_admin']) {
 ?>
 
 
-<h2>Wyszukaj klienta</h2>
-<form>
-    <input type="text">
-</form>
+
+<section class="fullwidth">
+    <h2>Wyszukaj klienta</h2>
+    <form>
+        <input type="text" placeholder="Szukaj po nazwie klienta" onkeyup="showHint(this.value)">
+    </form>
+    <table id="clients">
+        
+    </table>
+</section>
 
 
 
-<h2>Zamowienia</h2>
+<h2 style="text-align:center;">Zamowienia</h2>
 <table>
 <th> Id klienta </th>
 <th> Id zamowienia </th>
@@ -42,7 +48,23 @@ if (isset($_SESSION['user']) and $_SESSION['is_admin']) {
 
 
 
-
+<script>
+    function showHint(str) {
+    if (str.length == 0) {
+        document.getElementById("clients").innerHTML = '';
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("clients").innerHTML = this.responseText;
+        }
+        };
+        xmlhttp.open("GET", "partials/clients.php?name=" + str, true);
+        xmlhttp.send();
+    }
+}
+</script>
 
 <?php 
 

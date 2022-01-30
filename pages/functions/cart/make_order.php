@@ -29,9 +29,10 @@ if (isset($_SESSION['user'])) {
     $client['DataDostawy'] = "'{$_POST['data']}'";
   }
 }
-$order = $db -> makeOrder(
-    $_SESSION['cart'],
-    $client
+if ($diff < -1) {
+    $order = $db -> makeOrder(
+        $_SESSION['cart'],
+        $client
 );
 unset($db);
 if (is_null($order)) {
@@ -41,6 +42,8 @@ if (is_null($order)) {
     setcookie('order', $order, time() + 3600, "/");
     header('Location: ../../summary.php');
 } 
+}
+
 
 
 

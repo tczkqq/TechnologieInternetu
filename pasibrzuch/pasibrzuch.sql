@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 02 Sty 2022, 19:01
+-- Czas generowania: 30 Sty 2022, 22:00
 -- Wersja serwera: 10.4.22-MariaDB
 -- Wersja PHP: 8.0.13
 
@@ -61,7 +61,8 @@ CREATE TABLE `klienci` (
 
 INSERT INTO `klienci` (`IDKlient`, `NrTelefonu`, `NazwaKlienta`, `Adres`) VALUES
 (63, '666777888', 'Admin Adminowski', 'Ul. Adminowa 12/3, 12-300 Adminów'),
-(64, '111222333', 'Test Testowy', 'Aleja Testów 23/5, 19-300 Testowo');
+(72, '123456789', 'Jacek Jackowski', 'Ul. Jackowa 12/23'),
+(73, '876598632', 'Test Testowy', 'Ul. Testowa 12, 12-299 Testów');
 
 -- --------------------------------------------------------
 
@@ -83,7 +84,8 @@ CREATE TABLE `konta` (
 
 INSERT INTO `konta` (`IDKonta`, `IDKlient`, `Haslo`, `Email`, `Typ`) VALUES
 (28, 63, 'admin', 'admin@admin.pl', 1),
-(29, 64, 'test', 'test@test.pl', 0);
+(32, 72, 'jacek', 'jacek@jacek.pl', 0),
+(33, 73, 'test', 'Test@test.pl', 0);
 
 -- --------------------------------------------------------
 
@@ -134,6 +136,15 @@ CREATE TABLE `zamowienia` (
   `IDKlienta` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
+--
+-- Zrzut danych tabeli `zamowienia`
+--
+
+INSERT INTO `zamowienia` (`IDZamowienia`, `MiejsceDostawy`, `DataDostawy`, `DataZamowienia`, `IDKlienta`) VALUES
+(234, 'Ul. Adminowa 12/3, 12-300 Adminów', NULL, '2022-01-30', 63),
+(235, 'Ul. Adminowa 12/3, 12-300 Adminów', '2022-02-06 21:40:00', '2022-01-30', 63),
+(236, 'Ul. Adminowa 12/3, 12-300 Adminów', '2022-02-06 21:40:00', '2022-01-30', 63);
+
 -- --------------------------------------------------------
 
 --
@@ -145,6 +156,14 @@ CREATE TABLE `zamowione_potrawy` (
   `IDZamowienia` int(11) NOT NULL,
   `Ilosci` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
+
+--
+-- Zrzut danych tabeli `zamowione_potrawy`
+--
+
+INSERT INTO `zamowione_potrawy` (`IDPotrawy`, `IDZamowienia`, `Ilosci`) VALUES
+(6, 234, 2),
+(6, 235, 6);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -205,13 +224,13 @@ ALTER TABLE `kategorie`
 -- AUTO_INCREMENT dla tabeli `klienci`
 --
 ALTER TABLE `klienci`
-  MODIFY `IDKlient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `IDKlient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT dla tabeli `konta`
 --
 ALTER TABLE `konta`
-  MODIFY `IDKonta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `IDKonta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT dla tabeli `potrawy`
@@ -223,7 +242,7 @@ ALTER TABLE `potrawy`
 -- AUTO_INCREMENT dla tabeli `zamowienia`
 --
 ALTER TABLE `zamowienia`
-  MODIFY `IDZamowienia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
+  MODIFY `IDZamowienia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=237;
 
 --
 -- Ograniczenia dla zrzutów tabel
