@@ -1,7 +1,7 @@
 # Tomasz Jarnutowski (Z510_II)
 
 ## Struktura
- - Zadanie z JS i JSON - ***./zadania/spa/*** 
+ - Zadanie z JS i JSON - ***./zadanie/*** 
  - Sprawozdanie - ***./pasibrzuch/***
  - Bazadanych - ***./pasibrzuch/pasibrzuch.sql***
 
@@ -12,5 +12,4 @@ Wyszukiwanie z wykorzystaniem AJAX jest w panelu administracyjnym (*pages/admin.
 
 ### Dane administratora
 Login: admin@admin.pl Hasło: admin
-
 

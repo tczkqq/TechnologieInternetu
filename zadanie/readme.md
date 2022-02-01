@@ -1,0 +1,1 @@
+W pliku przepisy.html ładowanie pliku za pomocą inputa, a w przepisy2.html za pomocą nazwy

@@ -1,1 +1,0 @@
-Działa nad LiveServer.
